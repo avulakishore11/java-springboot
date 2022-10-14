@@ -15,7 +15,7 @@ pipeline {
             }
         }
         stage('Sonar Analysis') {
-            step {
+            steps {
                 echo 'SOnar Qube'
                 sh "mvn sonar:sonar -Dsonar.projectKey=Raghupatik_java-springboot -Dsonar.sources=src/main/java/"
             }
