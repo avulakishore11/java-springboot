@@ -1,6 +1,7 @@
 pipeline {
-    agent any 
+    agent any
     stages {
+
         stage('Build') {
             steps {
                 echo 'Build'
@@ -10,12 +11,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test'
-                sh 'mvn test'
+                // sh 'mvn test'
             }
         }
         stage('Sonar Analysis') {
-            steps {
-                echo 'SOnar QUbe'
+            step {
+                echo 'SOnar Qube'
+                sh "mvn sonar:sonar -Dsonar.projectKey=Raghupatik_java-springboot -Dsonar.sources=src/main/java/"
             }
         }
         stage('Push to artifactory') {
@@ -23,6 +25,7 @@ pipeline {
                 echo 'Push to artifactory'
             }
         }
+
         stage('Deploy to QA') {
             steps {
                 echo 'Deploy to QA'
