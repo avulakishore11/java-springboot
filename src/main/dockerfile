@@ -2,7 +2,7 @@
 
 # Stage 1: Build stage
 # Use a base image to build the Java 8 version source code
-FROM maven:3.9.8-eclipse-temurin-8-jdk AS builder
+FROM maven:3.9.8-eclipse-temurin-8 AS builder
 
 # Set up working directory for container
 WORKDIR /app
