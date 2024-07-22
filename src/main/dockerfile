@@ -13,7 +13,7 @@ WORKDIR /app
 # Download dependencies, this helps leverage Docker layer caching
 
 # Copy the rest of the source code
-COPY . .
+COPY . /app
 
 # Build the code
 RUN mvn package 
