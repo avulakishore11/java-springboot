@@ -8,10 +8,9 @@ FROM maven:3.9.8-eclipse-temurin-8 AS builder
 WORKDIR /app
 
 # Copy the Maven settings first to utilize caching
-COPY pom.xml ./
+
 
 # Download dependencies, this helps leverage Docker layer caching
-RUN mvn dependency:go-offline
 
 # Copy the rest of the source code
 COPY . .
