@@ -26,3 +26,12 @@ stages:
            mavenAuthenticateFeed: false
            effectivePomSkip: false
            sonarQubeRunAnalysis: false
+       - task: CopyFiles@2
+         inputs:
+           contents: 'target/bermtec-0.0.1.war'  # Path to your artifact
+           targetFolder: '$(Build.ArtifactStagingDirectory)/artifact'  # The dedicated folder
+       - task: PublishBuildArtifacts@1
+         inputs:
+           pathToPublish: '$(Build.ArtifactStagingDirectory)/artifact'
+           artifactName: 'bermtec-artifact'
+           publishLocation: 'Container'
