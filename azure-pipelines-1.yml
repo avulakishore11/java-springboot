@@ -29,9 +29,9 @@ stages:
        - task: CopyFiles@2
          inputs:
            contents: 'target/bermtec-0.0.1.war'  # Path to your artifact
-           targetFolder: '$(Build.ArtifactStagingDirectory)/artifact'  # The dedicated folder
+           targetFolder: '/home/azureuser/artifact'  # The dedicated folder
        - task: PublishBuildArtifacts@1
          inputs:
-           pathToPublish: '$(Build.ArtifactStagingDirectory)/artifact'
+           pathToPublish: '/home/azureuser/artifact'
            artifactName: 'bermtec-artifact'
            publishLocation: 'Container'
