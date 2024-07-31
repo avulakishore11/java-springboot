@@ -12,9 +12,9 @@ pool:
     - maven
    
 stages:
- - stage: 
+ - stage: 'build stage'
    jobs:
-     - job: 
+     - job: 'build job'
        steps:
        - task: Maven@4
          inputs:
