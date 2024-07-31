@@ -34,4 +34,4 @@ stages:
          inputs:
            pathToPublish: '/home/azureuser/artifact'
            artifactName: 'bermtec-artifact'
-           publishLocation: 'Container'
+           publishLocation: 'container'
