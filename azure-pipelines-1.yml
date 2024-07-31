@@ -14,7 +14,8 @@ pool:
 stages:
  - stage: 
    jobs:
-     - job: 
+     - job: 'build'
+       displayName: 'Build-1'
        steps:
        - task: Maven@4
          inputs:
