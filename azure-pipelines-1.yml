@@ -9,8 +9,8 @@ trigger:
 pool:
   name: 'k8s-pool'
   demands: 
-   - Mavenhome -equals /usr/share/maven 
-   - openjdkVersion -equals 1.8.0_422
+   - MAVENHOME -equals /usr/share/maven 
+   - JAVAVERSION -equals 1.8.0_422
     
 stages:
  - stage: 
