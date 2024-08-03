@@ -9,7 +9,7 @@ trigger:
 pool:
   name: 'k8s-pool'
   demands:
-    - maven
+    - Mavenhome
    
 stages:
  - stage: 
@@ -19,6 +19,7 @@ stages:
        steps:
        - task: Maven@4
          inputs:
+           
            mavenPomFile: 'pom.xml'
            publishJUnitResults: true
            testResultsFiles: '**/surefire-reports/TEST-*.xml'
@@ -34,5 +35,5 @@ stages:
        - task: PublishBuildArtifacts@1
          inputs:
            pathToPublish: '/home/azureuser/artifact'
-           artifactName: 'bermtec-artifact'
+           artifactName: 'bermtec-artifact-1'
            publishLocation: 'container'
