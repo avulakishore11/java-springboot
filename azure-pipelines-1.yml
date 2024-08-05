@@ -10,7 +10,7 @@ pool:
   name: 'k8s-pool'
   demands: 
    - Mavenhome
-   - javaversion 
+   - openjdkversion 
     
 stages:
  - stage: 
