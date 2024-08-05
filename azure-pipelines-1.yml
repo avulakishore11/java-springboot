@@ -32,9 +32,9 @@ stages:
        - task: CopyFiles@2
          inputs:
            contents: 'target/bermtec-0.0.1.war'  # Path to your artifact
-           targetFolder: '/home/azureuser/artifact'  # The dedicated folder
+           targetFolder: '/home/azureuser/agent'  # The dedicated folder
        - task: PublishBuildArtifacts@1
          inputs:
-           pathToPublish: '/home/azureuser/artifact'
+           pathToPublish: '/home/azureuser/agent'
            artifactName: 'bermtec-artifact-1'
            publishLocation: 'container'
