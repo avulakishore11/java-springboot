@@ -11,7 +11,7 @@ pool:
   demands: 
    - mavenhome
    - javaversion 
-   - apachemaven
+   - runtime
     
 stages:
  - stage: 
