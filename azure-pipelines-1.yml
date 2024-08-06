@@ -13,8 +13,7 @@ pool:
    - javaversion 
    - runtime
 
-variables:
- jdkVersionOption: '1.8.0_422'
+
 
 stages:
 - stage: Build
@@ -28,8 +27,6 @@ stages:
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
         javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '$(jdkVersionOption)'
-        jdkArchitectureOption: 'amdx64'
         mavenVersionOption: 'Default'
         mavenAuthenticateFeed: false
         effectivePomSkip: false
