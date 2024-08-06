@@ -10,8 +10,6 @@ pool:
   name: 'k8s-pool'
   demands: 
    - mavenhome
-   - javaversion 
-   - runtime
 
 
 
