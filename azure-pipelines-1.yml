@@ -7,10 +7,10 @@ trigger:
 - develop/*
 
 pool:
-  name: 'default'
+  name: 'agent-pool'
   demands: 
-   - Mavenhome
-   - openjdkversion 
+   - mavenhome
+   - javaversion 
     
 stages:
  - stage: 
