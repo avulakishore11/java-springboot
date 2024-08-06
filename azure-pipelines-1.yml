@@ -12,30 +12,37 @@ pool:
    - mavenhome
    - javaversion 
    - runtime
-    
+
+variables:
+ jdkVersionOption: '1.8'
+
 stages:
- - stage: 
-   jobs:
-     - job: 'build'
-       displayName: 'Build-1'
-       steps:
-       - task: Maven@4
-         inputs:
-           
-           mavenPomFile: 'pom.xml'
-           publishJUnitResults: true
-           testResultsFiles: '**/surefire-reports/TEST-*.xml'
-           javaHomeOption: 'JDKVersion'
-           mavenVersionOption: 'Default'
-           mavenAuthenticateFeed: false
-           effectivePomSkip: false
-           sonarQubeRunAnalysis: false
-       - task: CopyFiles@2
-         inputs:
-           contents: 'target/bermtec-0.0.1.war'  # Path to your artifact
-           targetFolder: '/home/azureuser/agent'  # The dedicated folder
-       - task: PublishBuildArtifacts@1
-         inputs:
-           pathToPublish: '/home/azureuser/agent'
-           artifactName: 'bermtec-artifact-1'
-           publishLocation: 'container'
+- stage: Build
+  jobs:
+  - job: 'build'
+    displayName: 'Build-1'
+    steps:
+    - task: Maven@4
+      inputs:
+        mavenPomFile: 'pom.xml'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '$(jdkVersionOption)'
+        jdkArchitectureOption: x64
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+        goals: 'package'
+    - task: CopyFiles@2
+      inputs:
+        contents: 'target/bermtec-0.0.1.war'  # Path to your artifact
+        targetFolder: '/home/azureuser/agent'  # The dedicated folder
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathToPublish: '/home/azureuser/agent'
+        artifactName: 'bermtec-artifact-1'
+        publishLocation: 'container'
+
+
