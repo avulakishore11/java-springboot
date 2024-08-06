@@ -7,7 +7,7 @@ trigger:
 - develop/*
 
 pool:
-  name: 'agent-pool'
+  name: 'k8s-pool'
   demands: 
    - mavenhome
    - javaversion 
@@ -41,5 +41,14 @@ stages:
         pathToPublish: '/home/azureuser/agent'
         artifactName: 'bermtec-artifact-1'
         publishLocation: 'container'
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'svc-coonection1'
+        appType: 'webAppLinux'
+        WebAppName: 'nikeorders'
+        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
+        RuntimeStack: 'JBOSSEAP|7-java8'
+    
 
 
